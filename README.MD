@@ -3,8 +3,11 @@
 
 ## 环境配置
 retrofit网络请求框架   `com.squareup.retrofit2:retrofit:2.5.0`
+
 retrofit添加Json解析返回数据  `com.squareup.retrofit2:converter-gson:2.5.0`
+
 retrofit添加Rxjava支持  `com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0`
+
 rxjava框架  `com.trello.rxlifecycle2:rxlifecycle-components:2.1.0`
 
 
