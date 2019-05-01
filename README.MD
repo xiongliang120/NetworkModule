@@ -1,5 +1,5 @@
 ## 概述
-基于Retrofit + OkHttp封装的网络请求库
+基于Retrofit + RxJava封装的网络请求库
 
 ## 环境配置
 retrofit网络请求框架   `com.squareup.retrofit2:retrofit:2.5.0`
