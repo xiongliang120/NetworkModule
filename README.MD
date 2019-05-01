@@ -11,7 +11,7 @@ rxjava框架  `com.trello.rxlifecycle2:rxlifecycle-components:2.1.0`
 ## 封装介绍
 返回类封装:
 使用泛型封装返回数据，抽取公共数据，减少重复工作
-![](documents/1.png)
+![](document/1.png)
 
 错误码统一处理:
 对HttpException，UnKownHostException,SocketTimeOutExcetoion,ParseException进行处理
