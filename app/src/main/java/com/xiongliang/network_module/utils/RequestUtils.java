@@ -1,5 +1,7 @@
 package com.xiongliang.network_module.utils;
 
+import android.util.Log;
+
 import com.alibaba.fastjson.JSON;
 import com.google.gson.JsonDeserializer;
 import com.trello.rxlifecycle2.components.RxActivity;
@@ -12,6 +14,7 @@ import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
 public class RequestUtils {
+
     /**
      * Post 请求article
      * @param context

@@ -37,25 +37,51 @@ public class BaseParams {
      */
     public long ts = System.currentTimeMillis();
 
-    /**
-     * 数据体
-     */
-    public Object data;
-
-    public BaseParams() {
-
+    public int getTerm() {
+        return term;
     }
 
-    private BaseParams(Object object) {
-        this.data = object;
+    public void setTerm(int term) {
+        this.term = term;
     }
 
-    public static BaseParams newParams() {
-        return new BaseParams();
+    public int getVersion() {
+        return version;
     }
 
-    public static BaseParams newParams(Object object) {
-        return new BaseParams(object);
+    public void setVersion(int version) {
+        this.version = version;
     }
 
+    public String getUdid() {
+        return udid;
+    }
+
+    public void setUdid(String udid) {
+        this.udid = udid;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getApp() {
+        return app;
+    }
+
+    public void setApp(String app) {
+        this.app = app;
+    }
+
+    public long getTs() {
+        return ts;
+    }
+
+    public void setTs(long ts) {
+        this.ts = ts;
+    }
 }

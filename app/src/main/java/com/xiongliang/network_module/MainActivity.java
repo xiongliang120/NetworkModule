@@ -2,13 +2,18 @@ package com.xiongliang.network_module;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.trello.rxlifecycle2.components.RxActivity;
+import com.xiongliang.network_module.bean.request.ArticlePage;
 import com.xiongliang.network_module.bean.request.ArticleParams;
 import com.xiongliang.network_module.bean.response.ArticlesData;
 import com.xiongliang.network_module.utils.RequestUtils;
+
+import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends RxActivity {
     private Button articleButton;
@@ -29,17 +34,20 @@ public class MainActivity extends RxActivity {
 
     public void getArticleData(){
         ArticleParams articleParams = new ArticleParams();
-        articleParams.addParam("page_num",  1);
-        articleParams.addParam("page_size", 10);
-        RequestUtils.getDemo(articleParams,this,new MyObserver(){
+        ArticlePage articlePage = new ArticlePage();
+        articlePage.setPage_num(1);
+        articlePage.setPage_size(10);
+        articleParams.setData(articlePage);
+
+        RequestUtils.getDemo(articleParams,this,new MyObserver<ArticlesData>(){
             @Override
-            public void onSuccess(String result) {
-                super.onSuccess(result);
+            public void onSuccess(ArticlesData result) {
+                Toast.makeText(MainActivity.this,"请求数据成功",Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(Throwable e, String errorMsg) {
-                super.onFailure(e, errorMsg);
+                Toast.makeText(MainActivity.this,"请求数据失败",Toast.LENGTH_LONG).show();
             }
         });
     }

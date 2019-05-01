@@ -2,14 +2,17 @@ package com.xiongliang.network_module;
 
 import com.xiongliang.network_module.base.BaseObserver;
 
-public class MyObserver<T> extends BaseObserver {
-    @Override
-    public void onSuccess(String result) {
+import io.reactivex.disposables.Disposable;
 
+public abstract class MyObserver<T> extends BaseObserver<T> {
+    @Override
+    public void onSubscribe(Disposable d) {
+        super.onSubscribe(d);
+        //TODO 网络请求时，显示加载框
     }
 
     @Override
-    public void onFailure(Throwable e, String errorMsg) {
-
+    public void onError(Throwable e) {
+        super.onError(e);
     }
 }
