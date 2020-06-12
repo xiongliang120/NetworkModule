@@ -1,19 +1,17 @@
-package com.xiongliang.network_module;
+package com.xiongliang.network_module.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.trello.rxlifecycle2.components.RxActivity;
+import com.xiongliang.network_module.MyObserver;
+import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.bean.request.ArticlePage;
 import com.xiongliang.network_module.bean.request.ArticleParams;
 import com.xiongliang.network_module.bean.response.ArticlesData;
 import com.xiongliang.network_module.utils.RequestUtils;
-
-import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends RxActivity {
     private Button articleButton;
