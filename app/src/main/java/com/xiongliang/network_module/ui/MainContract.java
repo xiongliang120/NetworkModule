@@ -7,7 +7,7 @@ public interface MainContract {
 
     interface IView{
         public void loadArticleSuccess();
-        
+
         public void loadArticleFailed();
     }
 }
