@@ -25,6 +25,7 @@ public class LogInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
+        Log.i(TAG,"request url:"+request.url());
         long t1 = System.nanoTime();
         printParams(request.body());
         Response response = chain.proceed(request);
@@ -40,6 +41,9 @@ public class LogInterceptor implements Interceptor {
 
 
     private void printParams(RequestBody body) {
+        if(body == null){
+            return;
+        }
         Buffer buffer = new Buffer();
         try {
             body.writeTo(buffer);

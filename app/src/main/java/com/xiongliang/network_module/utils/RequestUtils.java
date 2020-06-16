@@ -1,21 +1,8 @@
 package com.xiongliang.network_module.utils;
 
-import android.util.Log;
 
-import com.alibaba.fastjson.JSON;
-import com.google.gson.JsonDeserializer;
-import com.trello.rxlifecycle2.components.RxActivity;
-import com.xiongliang.network_module.MyObserver;
-import com.xiongliang.network_module.bean.request.ArticleParams;
+import com.xiongliang.network_module.ui.MyObserver;
 
-import org.json.JSONObject;
-
-import java.util.Iterator;
-
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Callback;
 
 public class RequestUtils {
 
@@ -23,14 +10,28 @@ public class RequestUtils {
 
 
     /**
+     * 免费天气地址     http://v.juhe.cn/historyWeather/province?key=9a3d2b174cb37033a7a6e0570bc8e26
      * Post 请求article
-     * @param context
      * @param observer
      */
-    public static void getDemo(RxActivity context, MyObserver observer){
+    public static void getWeatherData(MyObserver observer){
         RetrofitUtils.getApiUrl()
-                .getWeather(key).compose(RxHelper.flowableIO2Main()).subscribe(observer);
+                .getWeather(key).compose(RxHelper.io_main()).subscribe(observer);
+
+
+//        Call<BaseResponse<WeatherData>> call =  RetrofitUtils.getApiUrl().getWeather(key);
+//        call.enqueue(new Callback<BaseResponse<WeatherData>>() {
+//            @Override
+//            public void onResponse(Call<BaseResponse<WeatherData>> call, Response<BaseResponse<WeatherData>> response) {
+//                Log.i("xiongliang","成功");
+//            }
+//
+//            @Override
+//            public void onFailure(Call<BaseResponse<WeatherData>> call, Throwable t) {
+//                Log.i("xiongliang","失败");
+//            }
+//        });
     }
 
-    //免费天气地址     http://v.juhe.cn/historyWeather/province?key=9a3d2b174cb37033a7a6e0570bc8e26
+
 }

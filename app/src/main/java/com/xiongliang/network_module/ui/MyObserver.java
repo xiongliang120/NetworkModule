@@ -1,4 +1,4 @@
-package com.xiongliang.network_module;
+package com.xiongliang.network_module.ui;
 
 import com.xiongliang.network_module.base.BaseObserver;
 

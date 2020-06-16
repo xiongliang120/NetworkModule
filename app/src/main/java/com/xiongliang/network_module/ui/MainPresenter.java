@@ -1,10 +1,9 @@
 package com.xiongliang.network_module.ui;
 
-import com.xiongliang.network_module.MyObserver;
-import com.xiongliang.network_module.bean.request.ArticlePage;
-import com.xiongliang.network_module.bean.request.ArticleParams;
-import com.xiongliang.network_module.bean.response.WeatherData;
+import com.xiongliang.network_module.bean.response.WeatherItem;
 import com.xiongliang.network_module.utils.RequestUtils;
+
+import java.util.List;
 
 public class MainPresenter implements MainContract.IPresenter {
     private MainContract.IView view;
@@ -16,20 +15,20 @@ public class MainPresenter implements MainContract.IPresenter {
 
     @Override
     public void detachView(MainContract.IView view) {
-
+       this.view = null;
     }
 
     @Override
-    public void loadData() {
-        RequestUtils.getDemo(new MyObserver<WeatherData>(){
+    public void loadWeatherData() {
+        RequestUtils.getWeatherData(new MyObserver<WeatherItem>(){
             @Override
-            public void onSuccess(WeatherData result) {
-                view.loadArticleSuccess();
+            public void onSuccess(List<WeatherItem> result) {
+                view.loadWeatherDataSuccess(result);
             }
 
             @Override
             public void onFailure(Throwable e, String errorMsg) {
-                view.loadArticleFailed();
+                view.loadWeatherDataFailed();
             }
         });
     }

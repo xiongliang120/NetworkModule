@@ -4,6 +4,8 @@ import android.util.Log;
 
 import com.xiongliang.network_module.utils.ExceptionUtil;
 
+import java.util.List;
+
 import io.reactivex.disposables.Disposable;
 import io.reactivex.Observer;
 
@@ -30,7 +32,7 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
     public void onSubscribe(Disposable d) {
     }
 
-    public abstract void onSuccess(T result);
+    public abstract void onSuccess(List<T> result);
 
     public abstract void onFailure(Throwable e,String errorMsg);
 
