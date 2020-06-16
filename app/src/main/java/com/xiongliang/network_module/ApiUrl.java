@@ -1,16 +1,17 @@
 package com.xiongliang.network_module;
 
-import com.xiongliang.network_module.base.BaseResponse;
-import com.xiongliang.network_module.bean.response.ArticlesData;
+import com.xiongliang.network_module.bean.response.WeatherData;
 
 import io.reactivex.Observable;
-import okhttp3.RequestBody;
-import retrofit2.http.Body;
-import retrofit2.http.Headers;
-import retrofit2.http.POST;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface ApiUrl {
-    @Headers("Accept:application/json")
-    @POST("article/list")
-    Observable<BaseResponse<ArticlesData>> postArticle(@Body RequestBody body);
+
+    @GET("historyWeather/province")
+    Observable<WeatherData> getWeather(@Query("key") String key);
+//    @GET("news/item")
+//    Observable<BaseResponse<ArticlesData>> postArticle(@Body RequestBody body);
 }

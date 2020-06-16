@@ -2,12 +2,14 @@ package com.xiongliang.network_module.ui;
 
 public interface MainContract {
     interface IPresenter{
-         public void loadData();
+          void attachView(IView view);
+          void detachView(IView view);
+          void loadData();
     }
 
     interface IView{
-        public void loadArticleSuccess();
+         void loadArticleSuccess();
 
-        public void loadArticleFailed();
+         void loadArticleFailed();
     }
 }
