@@ -7,25 +7,39 @@ import android.widget.Button;
 
 import com.trello.rxlifecycle2.components.RxActivity;
 import com.xiongliang.network_module.R;
+import com.xiongliang.network_module.base.BaseActivity;
 import com.xiongliang.network_module.bean.response.WeatherItem;
 
 import java.util.List;
 
-public class MainActivity extends RxActivity implements MainContract.IView {
+public class MainActivity extends BaseActivity implements MainContract.IView {
     private Button articleButton;
     private MainPresenter mainPresenter;
 
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void initView() {
         articleButton = findViewById(R.id.articleButton);
+    }
+
+    @Override
+    public void initEvent() {
         articleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getWeatherData();
             }
         });
+    }
+
+    @Override
+    public void initData() {
+
     }
 
     public void getWeatherData(){
