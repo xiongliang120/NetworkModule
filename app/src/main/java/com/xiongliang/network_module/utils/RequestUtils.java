@@ -18,19 +18,6 @@ public class RequestUtils {
         RetrofitUtils.getApiUrl()
                 .getWeather(key).compose(RxHelper.io_main()).subscribe(observer);
 
-
-//        Call<BaseResponse<WeatherData>> call =  RetrofitUtils.getApiUrl().getWeather(key);
-//        call.enqueue(new Callback<BaseResponse<WeatherData>>() {
-//            @Override
-//            public void onResponse(Call<BaseResponse<WeatherData>> call, Response<BaseResponse<WeatherData>> response) {
-//                Log.i("xiongliang","成功");
-//            }
-//
-//            @Override
-//            public void onFailure(Call<BaseResponse<WeatherData>> call, Throwable t) {
-//                Log.i("xiongliang","失败");
-//            }
-//        });
     }
 
 
