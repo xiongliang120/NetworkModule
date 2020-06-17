@@ -31,7 +31,7 @@ public class MainActivity extends RxActivity implements MainContract.IView {
     public void getWeatherData(){
         mainPresenter = new MainPresenter();
         mainPresenter.attachView(this);
-        mainPresenter.loadWeatherData();
+        mainPresenter.loadData();
     }
 
 

@@ -9,7 +9,7 @@ public interface MainContract {
     interface IPresenter{
           void attachView(IView view);
           void detachView(IView view);
-          void loadWeatherData();
+          void loadData();
     }
 
     interface IView{
