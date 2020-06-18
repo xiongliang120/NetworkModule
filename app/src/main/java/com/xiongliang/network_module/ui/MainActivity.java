@@ -1,11 +1,9 @@
 package com.xiongliang.network_module.ui;
 
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.trello.rxlifecycle2.components.RxActivity;
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseActivity;
 import com.xiongliang.network_module.bean.response.WeatherItem;
@@ -16,11 +14,11 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
     private Button articleButton;
     private MainPresenter mainPresenter;
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//    }
+
+    @Override
+    public int getLayoutResID() {
+        return R.layout.activity_main;
+    }
 
     @Override
     public void initView() {
