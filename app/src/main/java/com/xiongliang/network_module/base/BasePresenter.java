@@ -8,6 +8,7 @@ import com.xiongliang.network_module.ui.MainContract;
  */
 public abstract class BasePresenter implements MainContract.IPresenter {
     public  MainContract.IView view;
+
     @Override
     public void attachView(MainContract.IView iView) {
           this.view = iView;
@@ -16,5 +17,19 @@ public abstract class BasePresenter implements MainContract.IPresenter {
     @Override
     public void detachView(MainContract.IView iView) {
         this.view = null;
+    }
+
+    /***
+     * 将subscribe 返回的Disposable 加入管理器
+     */
+    public void add(){
+
+    }
+
+    /**
+     * UI 销毁时清空订阅对象
+     */
+    public void dispond(){
+
     }
 }
