@@ -4,23 +4,30 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.trello.rxlifecycle2.components.RxActivity;
+import com.xiongliang.network_module.ui.MainPresenter;
 
 public abstract class BaseActivity extends RxActivity {
+    public BasePresenter mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResID());
+        mPresenter = attachPresenter();
+        attachView();
         initView();
         initEvent();
         initData();
     }
+    public abstract BasePresenter attachPresenter();
 
-     public abstract int getLayoutResID();
+    public abstract void attachView();
 
-     public abstract void initView();
+    public abstract int getLayoutResID();
 
-     public abstract void initEvent();
+    public abstract void initView();
 
-     public abstract void initData();
+    public abstract void initEvent();
+
+    public abstract void initData();
 }

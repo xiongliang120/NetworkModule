@@ -6,14 +6,24 @@ import android.widget.Button;
 
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseActivity;
+import com.xiongliang.network_module.base.BasePresenter;
 import com.xiongliang.network_module.bean.response.WeatherItem;
 
 import java.util.List;
 
 public class MainActivity extends BaseActivity implements MainContract.IView {
     private Button articleButton;
-    private MainPresenter mainPresenter;
 
+
+    @Override
+    public BasePresenter attachPresenter() {
+        return new MainPresenter();
+    }
+
+    @Override
+    public void attachView() {
+        mPresenter.attachView(this);
+    }
 
     @Override
     public int getLayoutResID() {
@@ -41,15 +51,16 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
     }
 
     public void getWeatherData(){
-        mainPresenter = new MainPresenter();
-        mainPresenter.attachView(this);
-        mainPresenter.loadData();
+        mPresenter = new MainPresenter();
+        mPresenter.loadData();
     }
 
 
     @Override
     public void loadWeatherDataSuccess(List<WeatherItem> result) {
-        Log.i("xiongliang"," 获取数据成功"+result.size());
+        if(result != null){
+            Log.i("xiongliang"," 获取数据成功"+result.size());
+        }
     }
 
     @Override
@@ -60,9 +71,9 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mainPresenter != null){
-            mainPresenter.detachView(this);
-            mainPresenter = null;
+        if(mPresenter != null){
+            mPresenter.detachView(this);
+            mPresenter = null;
         }
     }
 }
