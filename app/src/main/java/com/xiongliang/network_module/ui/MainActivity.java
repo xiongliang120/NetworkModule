@@ -51,7 +51,6 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
     }
 
     public void getWeatherData(){
-        mPresenter = new MainPresenter();
         mPresenter.loadData();
     }
 

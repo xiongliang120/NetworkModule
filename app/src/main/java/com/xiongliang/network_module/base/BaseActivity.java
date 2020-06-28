@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.trello.rxlifecycle2.components.RxActivity;
-import com.xiongliang.network_module.ui.MainPresenter;
 
 public abstract class BaseActivity extends RxActivity {
     public BasePresenter mPresenter;
