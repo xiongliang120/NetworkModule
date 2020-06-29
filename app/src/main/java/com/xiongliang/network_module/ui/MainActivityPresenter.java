@@ -9,7 +9,7 @@ import com.xiongliang.network_module.utils.RxHelper;
 
 import io.reactivex.functions.Consumer;
 
-public class MainPresenter extends BasePresenter {
+public class MainActivityPresenter extends BasePresenter {
     private static String key = "9a3d2b174cb37033a7a6e0570bc8e265";
 
     @Override

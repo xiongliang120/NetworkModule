@@ -1,5 +1,7 @@
 package com.xiongliang.network_module.ui;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,10 +16,11 @@ import java.util.List;
 public class MainActivity extends BaseActivity implements MainContract.IView {
     private Button articleButton;
 
+    private MainFragment mainFragment;
 
     @Override
     public BasePresenter attachPresenter() {
-        return new MainPresenter();
+        return new MainActivityPresenter();
     }
 
     @Override
@@ -33,6 +36,13 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
     @Override
     public void initView() {
         articleButton = findViewById(R.id.articleButton);
+
+        mainFragment = new MainFragment();
+        FragmentManager fragmentManager  = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout,mainFragment);
+        fragmentTransaction.commit();
+
     }
 
     @Override
@@ -47,7 +57,7 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
 
     @Override
     public void initData() {
-
+        getWeatherData();
     }
 
     public void getWeatherData(){
