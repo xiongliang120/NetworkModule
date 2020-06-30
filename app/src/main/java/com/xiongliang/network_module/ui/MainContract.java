@@ -13,8 +13,8 @@ public interface MainContract {
     }
 
     interface IView{
-         void loadWeatherDataSuccess(List<WeatherItem> result);
+         void loadDataSuccess(List<WeatherItem> result);
 
-         void loadWeatherDataFailed();
+         void loadDataFailed();
     }
 }

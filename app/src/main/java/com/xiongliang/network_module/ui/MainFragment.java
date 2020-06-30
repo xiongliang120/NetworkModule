@@ -34,13 +34,14 @@ public class MainFragment extends BaseFragment implements MainContract.IView {
        mPresenter.attachView(this);
     }
 
+
     @Override
-    public void loadWeatherDataSuccess(List<WeatherItem> result) {
+    public void loadDataSuccess(List<WeatherItem> result) {
         Log.i("xiongliang","111");
     }
 
     @Override
-    public void loadWeatherDataFailed() {
-        Log.i("xiongliang","2222");
+    public void loadDataFailed() {
+
     }
 }

@@ -65,17 +65,6 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
     }
 
 
-    @Override
-    public void loadWeatherDataSuccess(List<WeatherItem> result) {
-        if(result != null){
-            Log.i("xiongliang"," 获取数据成功"+result.size());
-        }
-    }
-
-    @Override
-    public void loadWeatherDataFailed() {
-        Log.i("xiongliang"," 获取数据失败");
-    }
 
     @Override
     protected void onDestroy() {
@@ -84,5 +73,17 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
             mPresenter.detachView(this);
             mPresenter = null;
         }
+    }
+
+    @Override
+    public void loadDataSuccess(List<WeatherItem> result) {
+        if(result != null){
+            Log.i("xiongliang"," 获取数据成功"+result.size());
+        }
+    }
+
+    @Override
+    public void loadDataFailed() {
+        Log.i("xiongliang"," 获取数据失败");
     }
 }
