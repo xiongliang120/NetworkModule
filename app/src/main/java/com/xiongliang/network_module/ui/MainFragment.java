@@ -34,6 +34,21 @@ public class MainFragment extends BaseFragment implements MainContract.IView {
        mPresenter.attachView(this);
     }
 
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initEvent() {
+
+    }
+
+    @Override
+    protected void initData() {
+        mPresenter.loadData();
+    }
+
 
     @Override
     public void loadDataSuccess(List<WeatherItem> result) {

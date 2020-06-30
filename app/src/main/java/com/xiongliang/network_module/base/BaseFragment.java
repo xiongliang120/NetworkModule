@@ -11,14 +11,25 @@ public abstract class BaseFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = attachPresenter();
+        initView();
+        initEvent();
+        initData();
     }
+
+
+    protected abstract BasePresenter attachPresenter();
+
+    protected abstract void attachView();
+
+    protected abstract void initView();
+
+    protected abstract void initEvent();
+
+    protected abstract void initData();
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
     }
 
-    protected abstract BasePresenter attachPresenter();
-
-    protected abstract void attachView();
 }
