@@ -1,7 +1,5 @@
 package com.xiongliang.network_module.base;
 
-import com.xiongliang.network_module.ui.MainContract;
-
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 

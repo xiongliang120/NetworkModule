@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseActivity;
 import com.xiongliang.network_module.base.BasePresenter;
+import com.xiongliang.network_module.base.MainContract;
 import com.xiongliang.network_module.bean.response.CatItem;
 
 import java.util.List;

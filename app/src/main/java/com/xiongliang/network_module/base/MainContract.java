@@ -1,9 +1,4 @@
-package com.xiongliang.network_module.ui;
-
-
-import com.xiongliang.network_module.bean.response.WeatherItem;
-
-import java.util.List;
+package com.xiongliang.network_module.base;
 
 public interface MainContract {
     interface IPresenter<T extends IView>{

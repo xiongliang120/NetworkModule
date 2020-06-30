@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseFragment;
 import com.xiongliang.network_module.base.BasePresenter;
+import com.xiongliang.network_module.base.MainContract;
 import com.xiongliang.network_module.bean.response.CatCategory;
 
 import java.util.List;
