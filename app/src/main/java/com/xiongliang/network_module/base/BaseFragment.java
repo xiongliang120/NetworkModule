@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 public abstract class BaseFragment extends Fragment {
-    public BasePresenter mPresenter;
+    protected BasePresenter mPresenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = attachPresenter();
+        attachView();
         initView();
         initEvent();
         initData();

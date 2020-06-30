@@ -6,15 +6,13 @@ import com.xiongliang.network_module.bean.response.WeatherItem;
 import java.util.List;
 
 public interface MainContract {
-    interface IPresenter{
-          void attachView(IView view);
-          void detachView(IView view);
+    interface IPresenter<T extends IView>{
+          void attachView(T view);
+          void detachView(T view);
           void loadData();
     }
 
     interface IView{
-         void loadDataSuccess(List<WeatherItem> result);
 
-         void loadDataFailed();
     }
 }

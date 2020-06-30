@@ -1,6 +1,7 @@
 package com.xiongliang.network_module;
 
 import com.xiongliang.network_module.base.BaseResponse;
+import com.xiongliang.network_module.bean.response.CatCategory;
 import com.xiongliang.network_module.bean.response.CatItem;
 import com.xiongliang.network_module.bean.response.WeatherItem;
 
@@ -32,7 +33,7 @@ public interface ApiUrl {
      * @return
      */
     @GET("v1/categories")
-    Observable<List<CatItem>> getCategories();
+    Observable<List<CatCategory>> getCategories();
 
 
 }

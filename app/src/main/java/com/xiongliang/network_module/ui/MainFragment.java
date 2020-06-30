@@ -1,6 +1,5 @@
 package com.xiongliang.network_module.ui;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,7 +11,7 @@ import android.view.ViewGroup;
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseFragment;
 import com.xiongliang.network_module.base.BasePresenter;
-import com.xiongliang.network_module.bean.response.WeatherItem;
+import com.xiongliang.network_module.bean.response.CatCategory;
 
 import java.util.List;
 
@@ -50,13 +49,13 @@ public class MainFragment extends BaseFragment implements MainContract.IView {
     }
 
 
-    @Override
-    public void loadDataSuccess(List<WeatherItem> result) {
-        Log.i("xiongliang","111");
+    public void loadDataSuccess(List<CatCategory> result) {
+        if(result != null){
+            Log.i("xiongliang","接收到接口返回数据"+result.size());
+        }
     }
 
-    @Override
     public void loadDataFailed() {
-
+        Log.i("xiongliang","接收到接口返回数据失败");
     }
 }

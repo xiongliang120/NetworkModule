@@ -9,19 +9,19 @@ import io.reactivex.disposables.Disposable;
 /***
  * 抽象类可以选择性实现接口方法
  */
-public abstract class BasePresenter implements MainContract.IPresenter {
-    public  MainContract.IView view;
+public abstract class BasePresenter<T extends MainContract.IView> implements MainContract.IPresenter<T> {
+    protected  T view;
 
     //管理 Disposable,用于取消网络请求
     private CompositeDisposable mDisposables = new CompositeDisposable();
 
     @Override
-    public void attachView(MainContract.IView iView) {
+    public void attachView(T iView) {
           this.view = iView;
     }
 
     @Override
-    public void detachView(MainContract.IView iView) {
+    public void detachView(T iView) {
         this.view = null;
         dispond();
     }
@@ -29,14 +29,14 @@ public abstract class BasePresenter implements MainContract.IPresenter {
     /***
      * 将subscribe 返回的Disposable 加入管理器
      */
-    public void add(Disposable disposable){
+    protected void add(Disposable disposable){
         mDisposables.add(disposable);
     }
 
     /**
      * UI 销毁时清空订阅对象
      */
-    public void dispond(){
+    protected void dispond(){
         mDisposables.clear();
     }
 }

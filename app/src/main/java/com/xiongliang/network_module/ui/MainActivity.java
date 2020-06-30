@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseActivity;
 import com.xiongliang.network_module.base.BasePresenter;
-import com.xiongliang.network_module.bean.response.WeatherItem;
+import com.xiongliang.network_module.bean.response.CatItem;
 
 import java.util.List;
 
@@ -75,14 +75,12 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
         }
     }
 
-    @Override
-    public void loadDataSuccess(List<WeatherItem> result) {
+    public void loadDataSuccess(List<CatItem> result) {
         if(result != null){
             Log.i("xiongliang"," 获取数据成功"+result.size());
         }
     }
 
-    @Override
     public void loadDataFailed() {
         Log.i("xiongliang"," 获取数据失败");
     }
