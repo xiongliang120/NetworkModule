@@ -1,10 +1,8 @@
 package com.xiongliang.network_module.ui;
 
-import android.util.Log;
 
 import com.xiongliang.network_module.base.BasePresenter;
 import com.xiongliang.network_module.bean.response.CatCategory;
-import com.xiongliang.network_module.bean.response.CatItem;
 import com.xiongliang.network_module.utils.RetrofitUtils;
 import com.xiongliang.network_module.utils.RxHelper;
 
