@@ -78,11 +78,11 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
 
     public void loadDataSuccess(List<CatItem> result) {
         if(result != null){
-            Log.i("xiongliang"," 获取数据成功"+result.size());
+            Log.i("xiongliang","Activity 获取数据成功"+result.size());
         }
     }
 
     public void loadDataFailed() {
-        Log.i("xiongliang"," 获取数据失败");
+        Log.i("xiongliang","Activity  获取数据失败");
     }
 }

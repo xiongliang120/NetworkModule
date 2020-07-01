@@ -52,11 +52,11 @@ public class MainFragment extends BaseFragment implements MainContract.IView {
 
     public void loadDataSuccess(List<CatCategory> result) {
         if(result != null){
-            Log.i("xiongliang","接收到接口返回数据"+result.size());
+            Log.i("xiongliang","Fragment 接收到接口返回数据"+result.size());
         }
     }
 
     public void loadDataFailed() {
-        Log.i("xiongliang","接收到接口返回数据失败");
+        Log.i("xiongliang","Fragment 接收到接口返回数据失败");
     }
 }
