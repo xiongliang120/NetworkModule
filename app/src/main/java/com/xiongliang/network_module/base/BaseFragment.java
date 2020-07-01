@@ -4,8 +4,8 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-public abstract class BaseFragment extends Fragment {
-    protected BasePresenter mPresenter;
+public abstract class BaseFragment<T> extends Fragment {
+    protected T mPresenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
 
-    protected abstract BasePresenter attachPresenter();
+    protected abstract T attachPresenter();
 
     protected abstract void attachView();
 

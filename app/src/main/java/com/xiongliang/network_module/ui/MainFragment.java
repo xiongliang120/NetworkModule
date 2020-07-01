@@ -10,13 +10,12 @@ import android.view.ViewGroup;
 
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseFragment;
-import com.xiongliang.network_module.base.BasePresenter;
 import com.xiongliang.network_module.base.MainContract;
 import com.xiongliang.network_module.bean.response.CatCategory;
 
 import java.util.List;
 
-public class MainFragment extends BaseFragment implements MainContract.IView {
+public class MainFragment extends BaseFragment<MainFragmentPresenter> implements MainContract.IView {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -25,7 +24,7 @@ public class MainFragment extends BaseFragment implements MainContract.IView {
     }
 
     @Override
-    protected BasePresenter attachPresenter() {
+    protected MainFragmentPresenter attachPresenter() {
         return new MainFragmentPresenter();
     }
 

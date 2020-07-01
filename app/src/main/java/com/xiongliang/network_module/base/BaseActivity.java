@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 
 import com.trello.rxlifecycle2.components.RxActivity;
 
-public abstract class BaseActivity extends RxActivity {
-    protected BasePresenter mPresenter;
+public abstract class BaseActivity<P> extends RxActivity {
+    protected P mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public abstract class BaseActivity extends RxActivity {
         initEvent();
         initData();
     }
-    protected abstract BasePresenter attachPresenter();
+    protected abstract P attachPresenter();
 
     protected abstract void attachView();
 
