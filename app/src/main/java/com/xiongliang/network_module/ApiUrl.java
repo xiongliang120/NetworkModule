@@ -7,6 +7,7 @@ import java.util.List;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
 public interface ApiUrl {
@@ -15,6 +16,7 @@ public interface ApiUrl {
      * @param limit,page
      * @return
      */
+    @Headers("Cache-Control: public,max-age:60")
     @GET("v1/sources")
     Flowable<List<CatItem>> getCat(@Query("limit") int limit, @Query("page") int page);
 
@@ -22,6 +24,7 @@ public interface ApiUrl {
      * Cat API https://api.thecatapi.com/v1/categories
      * @return
      */
+    @Headers("Cache-Control: public,max-age:60")
     @GET("v1/categories")
     Flowable<List<CatCategory>> getCategories();
 
