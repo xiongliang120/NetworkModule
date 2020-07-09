@@ -50,12 +50,13 @@ public class RetrofitUtils {
         //创建缓存对象
         Cache cache = new Cache(cacheFile,cacheSize);
 
-        return new OkHttpClient().newBuilder().cache(cache)
+        return new OkHttpClient().newBuilder()
                 .readTimeout(Constans.DEFAULT_TIME, TimeUnit.SECONDS)//设置读取超时时间
                 .connectTimeout(Constans.DEFAULT_TIME, TimeUnit.SECONDS)//设置请求超时时间
                 .writeTimeout(Constans.DEFAULT_TIME,TimeUnit.SECONDS)//设置写入超时时间
                 .addInterceptor(new LogInterceptor())//添加打印拦截器
                 .addNetworkInterceptor(new CacheInterceptor())
+                .cache(cache)
                 .retryOnConnectionFailure(true)//设置出现错误进行重新连接。
                 .build();
     }

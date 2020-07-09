@@ -1,5 +1,6 @@
 package com.xiongliang.network_module.utils;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.io.IOException;
@@ -17,10 +18,15 @@ public class CacheInterceptor implements Interceptor {
         String cacheControl = request.cacheControl().toString();
         Log.i("xiongliang","打印CacheControl="+cacheControl);
 
-        return originalResponse.newBuilder()
-                .header("Cache-Control", cacheControl)
-                .removeHeader("Pragma")
-                .build();
+        if(!TextUtils.isEmpty(cacheControl)){
+            return originalResponse.newBuilder()
+                    .header("Cache-Control", cacheControl)
+                    .removeHeader("Pragma")
+                    .build();
+        }else{
+            return originalResponse;
+        }
+
 
     }
 }
