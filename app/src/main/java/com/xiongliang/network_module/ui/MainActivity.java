@@ -1,10 +1,11 @@
 package com.xiongliang.network_module.ui;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseActivity;
@@ -39,7 +40,7 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
         articleButton = findViewById(R.id.articleButton);
 
         mainFragment = new MainFragment();
-        FragmentManager fragmentManager  = getFragmentManager();
+        FragmentManager fragmentManager  = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout,mainFragment);
         fragmentTransaction.commit();

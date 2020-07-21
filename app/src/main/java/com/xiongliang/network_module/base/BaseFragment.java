@@ -1,8 +1,10 @@
 package com.xiongliang.network_module.base;
 
-import android.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 
 public abstract class BaseFragment<T> extends Fragment {
     protected T mPresenter;

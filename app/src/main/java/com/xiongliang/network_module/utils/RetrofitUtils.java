@@ -1,6 +1,7 @@
 package com.xiongliang.network_module.utils;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.xiongliang.network_module.ApiUrl;

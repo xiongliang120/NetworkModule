@@ -1,11 +1,12 @@
 package com.xiongliang.network_module.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
-import com.trello.rxlifecycle2.components.RxActivity;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
-public abstract class BaseActivity<P> extends RxActivity {
+
+public abstract class BaseActivity<P> extends FragmentActivity {
     protected P mPresenter;
 
     @Override
