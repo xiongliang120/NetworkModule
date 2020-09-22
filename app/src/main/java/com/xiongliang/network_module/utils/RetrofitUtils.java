@@ -18,6 +18,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitUtils {
     private static volatile ApiUrl mApiUrl;
+
+    private RetrofitUtils(){
+
+    }
+
     /**
      * 饿汉单例模式
      */
