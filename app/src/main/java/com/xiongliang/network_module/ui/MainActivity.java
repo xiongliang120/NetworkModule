@@ -9,12 +9,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseActivity;
-import com.xiongliang.network_module.base.MainContract;
-import com.xiongliang.network_module.bean.response.CatItem;
 
-import java.util.List;
 
-public class MainActivity extends BaseActivity implements MainContract.IView {
+public class MainActivity extends BaseActivity implements ILoginView,IRegisterView {
     private Button articleButton;
 
     private MainFragment mainFragment;
@@ -84,13 +81,33 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
     }
 
 
-
     @Override
-    public void loadDataSuccess() {
-        Log.i("xiongliang","Activity  获取数据成功");
+    public void loginSuccess() {
+        Log.i("xiongliang","Activity  loginSuccess");
     }
 
-    public void loadDataFailed() {
-        Log.i("xiongliang","Activity  获取数据失败");
+    @Override
+    public void loginFailed() {
+        Log.i("xiongliang","Activity  loginFailed");
+    }
+
+    @Override
+    public void registerSuccess() {
+        Log.i("xiongliang","Activity  registerSuccess");
+    }
+
+    @Override
+    public void registerFailed() {
+        Log.i("xiongliang","Activity  registerFailed");
+    }
+
+    @Override
+    public void showDialog() {
+
+    }
+
+    @Override
+    public void showToast(String toastText) {
+
     }
 }

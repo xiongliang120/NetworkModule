@@ -1,7 +1,7 @@
 package com.xiongliang.network_module.proxy;
 
 import com.xiongliang.network_module.base.BasePresenter;
-import com.xiongliang.network_module.base.MainContract;
+import com.xiongliang.network_module.base.IBaseView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
  * @param <V>
  */
 
-public class MvpProxy<V extends MainContract.IView> {
+public class MvpProxy<V extends IBaseView> {
     private List<BasePresenter> mList;
     protected  V view;
 

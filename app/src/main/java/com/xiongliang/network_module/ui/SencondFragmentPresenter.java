@@ -10,19 +10,19 @@ import java.util.List;
 
 import io.reactivex.functions.Consumer;
 
-public class SencondFragmentPresenter extends BasePresenter<MainFragment> {
+public class SencondFragmentPresenter extends BasePresenter<IRegisterView> {
 
     public void loadData() {
         add(RetrofitUtils.getApiUrl()
                 .getCategories().compose(RxHelper.io_main()).subscribe(new Consumer<List<CatCategory>>() {
                     @Override
                     public void accept(List<CatCategory> catCategories) throws Exception {
-                         iView.loadDataSuccess();
+                         iView.registerSuccess();
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        iView.loadDataFailed();
+                        iView.registerFailed();
                     }
                 }));
     }

@@ -11,9 +11,8 @@ import androidx.annotation.Nullable;
 
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseFragment;
-import com.xiongliang.network_module.base.MainContract;
 
-public class MainFragment extends BaseFragment implements MainContract.IView {
+public class MainFragment extends BaseFragment implements ILoginView,IRegisterView{
     private MainFragmentPresenter mainFragmentPresenter;
     private SencondFragmentPresenter sencondFragmentPresenter;
 
@@ -66,11 +65,33 @@ public class MainFragment extends BaseFragment implements MainContract.IView {
     }
 
 
-    public void loadDataSuccess() {
-        Log.i("xiongliang","Fragment 接收到接口返回数据");
+    @Override
+    public void loginSuccess() {
+        Log.i("xiongliang","Fragment loginSuccess");
     }
 
-    public void loadDataFailed() {
-        Log.i("xiongliang","Fragment 接收到接口返回数据失败");
+    @Override
+    public void loginFailed() {
+        Log.i("xiongliang","Fragment loginFailed");
+    }
+
+    @Override
+    public void registerSuccess() {
+        Log.i("xiongliang","Fragment registerSuccess");
+    }
+
+    @Override
+    public void registerFailed() {
+        Log.i("xiongliang","Fragment registerFailed");
+    }
+
+    @Override
+    public void showDialog() {
+
+    }
+
+    @Override
+    public void showToast(String toastText) {
+
     }
 }

@@ -24,7 +24,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
     public MvpProxy createProxy(){
         if(mvpProxy == null){
-            mvpProxy = new MvpProxy((MainContract.IView)this);
+            mvpProxy = new MvpProxy((IBaseView)this);
         }
         return mvpProxy;
     }

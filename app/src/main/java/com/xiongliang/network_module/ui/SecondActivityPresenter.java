@@ -16,12 +16,12 @@ public class SecondActivityPresenter extends BasePresenter<MainActivity> {
                 .getCat(10,0).compose(RxHelper.io_main()).subscribe(new Consumer<List<CatItem>>() {
                     @Override
                     public void accept(List<CatItem> catItems) throws Exception {
-                        iView.loadDataSuccess();
+                        iView.loginSuccess();
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        iView.loadDataFailed();
+                        iView.loginFailed();
                     }
                 }));
     }

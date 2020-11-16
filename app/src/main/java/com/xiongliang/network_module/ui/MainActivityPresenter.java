@@ -12,19 +12,19 @@ import java.util.List;
 
 import io.reactivex.functions.Consumer;
 
-public class MainActivityPresenter extends BasePresenter<MainActivity> {
+public class MainActivityPresenter extends BasePresenter<ILoginView> {
 
     public void loadData() {
         add(RetrofitUtils.getApiUrl()
                 .getCat(10,0).compose(RxHelper.io_main()).subscribe(new Consumer<List<CatItem>>() {
                     @Override
                     public void accept(List<CatItem> catItems) throws Exception {
-                        iView.loadDataSuccess();
+                        iView.loginSuccess();
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        iView.loadDataFailed();
+                        iView.loginFailed();
                     }
                 }));
     }
