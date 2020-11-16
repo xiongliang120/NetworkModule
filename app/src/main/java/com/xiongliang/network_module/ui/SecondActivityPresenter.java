@@ -1,18 +1,15 @@
 package com.xiongliang.network_module.ui;
 
-import android.util.Log;
-
 import com.xiongliang.network_module.base.BasePresenter;
 import com.xiongliang.network_module.bean.response.CatItem;
 import com.xiongliang.network_module.utils.RetrofitUtils;
 import com.xiongliang.network_module.utils.RxHelper;
 
-
 import java.util.List;
 
 import io.reactivex.functions.Consumer;
 
-public class MainActivityPresenter extends BasePresenter<MainActivity> {
+public class SecondActivityPresenter extends BasePresenter<MainActivity> {
 
     public void loadData() {
         add(RetrofitUtils.getApiUrl()

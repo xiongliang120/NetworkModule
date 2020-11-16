@@ -12,11 +12,12 @@ import androidx.annotation.Nullable;
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseFragment;
 import com.xiongliang.network_module.base.MainContract;
-import com.xiongliang.network_module.bean.response.CatCategory;
 
-import java.util.List;
+public class MainFragment extends BaseFragment implements MainContract.IView {
+    private MainFragmentPresenter mainFragmentPresenter;
+    private SencondFragmentPresenter sencondFragmentPresenter;
 
-public class MainFragment extends BaseFragment<MainFragmentPresenter> implements MainContract.IView {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -24,14 +25,14 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter> implements
         return fragmentView;
     }
 
-    @Override
-    protected MainFragmentPresenter attachPresenter() {
-        return new MainFragmentPresenter();
-    }
+
 
     @Override
-    protected void attachView() {
-       mPresenter.attachView(this);
+    protected void addPresenter() {
+        mainFragmentPresenter = new MainFragmentPresenter();
+        sencondFragmentPresenter = new SencondFragmentPresenter();
+        mvpProxy.bindPresenter(mainFragmentPresenter);
+        mvpProxy.bindPresenter(sencondFragmentPresenter);
     }
 
     @Override
@@ -46,14 +47,27 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter> implements
 
     @Override
     protected void initData() {
-        mPresenter.loadData();
+        getFragmentWeatherData();
+        getFragmentCountryData();
+    }
+
+    /**
+     * 获取Fragment 天气数据
+     */
+    public void getFragmentWeatherData(){
+        mainFragmentPresenter.loadData();
+    }
+
+    /***
+     * 获取Fragment 城市数据
+     */
+    public void getFragmentCountryData(){
+        sencondFragmentPresenter.loadData();
     }
 
 
-    public void loadDataSuccess(List<CatCategory> result) {
-        if(result != null){
-            Log.i("xiongliang","Fragment 接收到接口返回数据"+result.size());
-        }
+    public void loadDataSuccess() {
+        Log.i("xiongliang","Fragment 接收到接口返回数据");
     }
 
     public void loadDataFailed() {

@@ -11,18 +11,18 @@ import java.util.List;
 import io.reactivex.functions.Consumer;
 
 public class MainFragmentPresenter extends BasePresenter<MainFragment> {
-    @Override
+
     public void loadData() {
         add(RetrofitUtils.getApiUrl()
                 .getCategories().compose(RxHelper.io_main()).subscribe(new Consumer<List<CatCategory>>() {
                     @Override
                     public void accept(List<CatCategory> catCategories) throws Exception {
-                         view.loadDataSuccess(catCategories);
+                         iView.loadDataSuccess();
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                         view.loadDataFailed();
+                        iView.loadDataFailed();
                     }
                 }));
     }

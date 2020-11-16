@@ -14,20 +14,22 @@ import com.xiongliang.network_module.bean.response.CatItem;
 
 import java.util.List;
 
-public class MainActivity extends BaseActivity<MainActivityPresenter> implements MainContract.IView {
+public class MainActivity extends BaseActivity implements MainContract.IView {
     private Button articleButton;
 
     private MainFragment mainFragment;
 
+    private MainActivityPresenter mainActivityPresenter;
+
+    private SecondActivityPresenter secondActivityPresenter;
+
 
     @Override
-    protected MainActivityPresenter attachPresenter() {
-        return new MainActivityPresenter();
-    }
-
-    @Override
-    public void attachView() {
-        mPresenter.attachView(this);
+    protected void addPresenter() {
+        mainActivityPresenter = new MainActivityPresenter();
+        secondActivityPresenter = new SecondActivityPresenter();
+        mvpProxy.bindPresenter(mainActivityPresenter);
+        mvpProxy.bindPresenter(secondActivityPresenter);
     }
 
     @Override
@@ -60,10 +62,25 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
     @Override
     public void initData() {
         getWeatherData();
+        getCountryData();
     }
 
+    /**
+     * 获取天气数据
+     */
     public void getWeatherData(){
-        mPresenter.loadData();
+        if(mainActivityPresenter != null){
+            mainActivityPresenter.loadData();
+        }
+    }
+
+    /***
+     * 获取城市数据
+     */
+    public void getCountryData(){
+        if(secondActivityPresenter != null){
+            secondActivityPresenter.loadData();
+        }
     }
 
 
@@ -71,16 +88,15 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mPresenter != null){
-            mPresenter.detachView(this);
-            mPresenter = null;
+        if(mvpProxy != null){
+            mvpProxy.unBindPresenter();
         }
     }
 
-    public void loadDataSuccess(List<CatItem> result) {
-        if(result != null){
-            Log.i("xiongliang","Activity 获取数据成功"+result.size());
-        }
+
+    @Override
+    public void loadDataSuccess() {
+        Log.i("xiongliang","Activity  获取数据成功");
     }
 
     public void loadDataFailed() {
