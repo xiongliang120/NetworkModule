@@ -86,15 +86,6 @@ public class MainActivity extends BaseActivity implements MainContract.IView {
 
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(mvpProxy != null){
-            mvpProxy.unBindPresenter();
-        }
-    }
-
-
-    @Override
     public void loadDataSuccess() {
         Log.i("xiongliang","Activity  获取数据成功");
     }

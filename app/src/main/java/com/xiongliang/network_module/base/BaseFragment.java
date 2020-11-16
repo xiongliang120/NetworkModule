@@ -29,6 +29,14 @@ public abstract class BaseFragment extends Fragment {
         return mvpProxy;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(mvpProxy != null){
+            mvpProxy.unBindPresenter();
+        }
+    }
+
     protected abstract void addPresenter();
 
     protected abstract void initView();
