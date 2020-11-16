@@ -11,20 +11,20 @@ import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseActivity;
 
 
-public class MainActivity extends BaseActivity implements ILoginView,IRegisterView {
+public class LoginActivity extends BaseActivity implements ILoginView,IRegisterView {
     private Button articleButton;
 
-    private MainFragment mainFragment;
+    private LoginFragment mainFragment;
 
-    private MainActivityPresenter mainActivityPresenter;
+    private LoginActivityPresenter mainActivityPresenter;
 
-    private SecondActivityPresenter secondActivityPresenter;
+    private RegisterActivityPresenter secondActivityPresenter;
 
 
     @Override
     protected void addPresenter() {
-        mainActivityPresenter = new MainActivityPresenter();
-        secondActivityPresenter = new SecondActivityPresenter();
+        mainActivityPresenter = new LoginActivityPresenter();
+        secondActivityPresenter = new RegisterActivityPresenter();
         mvpProxy.bindPresenter(mainActivityPresenter);
         mvpProxy.bindPresenter(secondActivityPresenter);
     }
@@ -38,7 +38,7 @@ public class MainActivity extends BaseActivity implements ILoginView,IRegisterVi
     public void initView() {
         articleButton = findViewById(R.id.articleButton);
 
-        mainFragment = new MainFragment();
+        mainFragment = new LoginFragment();
         FragmentManager fragmentManager  = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout,mainFragment);

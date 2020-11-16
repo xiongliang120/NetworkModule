@@ -1,8 +1,8 @@
 package com.xiongliang.network_module.ui;
 
-
 import com.xiongliang.network_module.base.BasePresenter;
-import com.xiongliang.network_module.bean.response.CatCategory;
+import com.xiongliang.network_module.base.IBaseView;
+import com.xiongliang.network_module.bean.response.CatItem;
 import com.xiongliang.network_module.utils.RetrofitUtils;
 import com.xiongliang.network_module.utils.RxHelper;
 
@@ -10,14 +10,14 @@ import java.util.List;
 
 import io.reactivex.functions.Consumer;
 
-public class SencondFragmentPresenter extends BasePresenter<IRegisterView> {
+public class RegisterActivityPresenter extends BasePresenter<IRegisterView> {
 
     public void loadData() {
         add(RetrofitUtils.getApiUrl()
-                .getCategories().compose(RxHelper.io_main()).subscribe(new Consumer<List<CatCategory>>() {
+                .getCat(10,0).compose(RxHelper.io_main()).subscribe(new Consumer<List<CatItem>>() {
                     @Override
-                    public void accept(List<CatCategory> catCategories) throws Exception {
-                         iView.registerSuccess();
+                    public void accept(List<CatItem> catItems) throws Exception {
+                        iView.registerSuccess();
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -26,4 +26,5 @@ public class SencondFragmentPresenter extends BasePresenter<IRegisterView> {
                     }
                 }));
     }
+
 }

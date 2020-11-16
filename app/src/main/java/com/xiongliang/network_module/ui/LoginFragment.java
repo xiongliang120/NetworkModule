@@ -12,9 +12,9 @@ import androidx.annotation.Nullable;
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseFragment;
 
-public class MainFragment extends BaseFragment implements ILoginView,IRegisterView{
-    private MainFragmentPresenter mainFragmentPresenter;
-    private SencondFragmentPresenter sencondFragmentPresenter;
+public class LoginFragment extends BaseFragment implements ILoginView,IRegisterView{
+    private LoginFragmentPresenter mainFragmentPresenter;
+    private RegisterFragmentPresenter sencondFragmentPresenter;
 
 
     @Nullable
@@ -28,8 +28,8 @@ public class MainFragment extends BaseFragment implements ILoginView,IRegisterVi
 
     @Override
     protected void addPresenter() {
-        mainFragmentPresenter = new MainFragmentPresenter();
-        sencondFragmentPresenter = new SencondFragmentPresenter();
+        mainFragmentPresenter = new LoginFragmentPresenter();
+        sencondFragmentPresenter = new RegisterFragmentPresenter();
         mvpProxy.bindPresenter(mainFragmentPresenter);
         mvpProxy.bindPresenter(sencondFragmentPresenter);
     }

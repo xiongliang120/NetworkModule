@@ -1,6 +1,5 @@
 package com.xiongliang.network_module.ui;
 
-import android.util.Log;
 
 import com.xiongliang.network_module.base.BasePresenter;
 import com.xiongliang.network_module.bean.response.CatItem;
@@ -12,7 +11,7 @@ import java.util.List;
 
 import io.reactivex.functions.Consumer;
 
-public class MainActivityPresenter extends BasePresenter<ILoginView> {
+public class LoginActivityPresenter extends BasePresenter<ILoginView> {
 
     public void loadData() {
         add(RetrofitUtils.getApiUrl()

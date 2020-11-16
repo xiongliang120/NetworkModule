@@ -10,7 +10,7 @@ import java.util.List;
 
 import io.reactivex.functions.Consumer;
 
-public class MainFragmentPresenter extends BasePresenter<IRegisterView> {
+public class RegisterFragmentPresenter extends BasePresenter<IRegisterView> {
 
     public void loadData() {
         add(RetrofitUtils.getApiUrl()
