@@ -21,6 +21,7 @@ public abstract class BasePresenter<T extends IBaseView>  {
     public void detachView() {
         dispond();
         mDisposables = null;
+        iView = null;
     }
 
     /***
