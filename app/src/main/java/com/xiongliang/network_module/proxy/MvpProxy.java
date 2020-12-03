@@ -11,7 +11,10 @@ import java.util.List;
  * bindPresenter(BasePresenter basePresenter),将View 保存到Presenter中, 并将Presenter 保存到集合中.
  * unBindPresenter(), 将Presenter 从集合取出分别detach,最后全部移除
  *
- * Presenter 保存 IView, 用于回调给View
+ * Presenter 保存 IView, 用于回调给View, 每个Presenter对应一个IView接口
+ *
+ * 场景：
+ * 文章点赞、文章收藏、关注接口,很多页面会用到, VP 一对一会导致每个P都需要重复定义一遍.
  *
  *
  * @param <V>
