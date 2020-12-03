@@ -8,8 +8,8 @@ import java.util.List;
 
 /***
  * MvpProxy 保存List<BasePresenter>
- * bindPresenter(View iView),将Presenter 保存到集合中,并将View 保存到Presenter中.
- * unBindPresenter(), 将Presenter 从集合取出分别detach
+ * bindPresenter(BasePresenter basePresenter),将View 保存到Presenter中, 并将Presenter 保存到集合中.
+ * unBindPresenter(), 将Presenter 从集合取出分别detach,最后全部移除
  *
  * Presenter 保存 IView, 用于回调给View
  *
