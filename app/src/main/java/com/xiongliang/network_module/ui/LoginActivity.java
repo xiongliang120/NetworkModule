@@ -10,6 +10,14 @@ import androidx.fragment.app.FragmentTransaction;
 import com.xiongliang.network_module.R;
 import com.xiongliang.network_module.base.BaseActivity;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+
 
 public class LoginActivity extends BaseActivity implements ILoginView,IRegisterView {
     private Button articleButton;
@@ -60,6 +68,28 @@ public class LoginActivity extends BaseActivity implements ILoginView,IRegisterV
     public void initData() {
         getWeatherData();
         getCountryData();
+    }
+
+    /**
+     * 测试callable
+     *
+     * Future.get() 是堵塞的, 新的方式是 CompletableFuture 可以采用非堵塞的方式获取返回值
+     *
+     *
+     */
+    public void testCallable(){
+        try{
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+            Future<String> future1 = executorService.submit(new Callable<String>(){
+                @Override
+                public String call() throws Exception {
+                    return "xiongliang";
+                }
+            });
+            Log.i("xiongliang","打印线程池执行Callable 返回Future,获取call执行的返回值="+future1.get());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
